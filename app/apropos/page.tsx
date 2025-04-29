@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Users, Target, Award, Briefcase } from "lucide-react"
 import { useTheme } from "next-themes"
+import dynamic from "next/dynamic"
+
+// Import dynamique du composant CTA avec désactivation du SSR
+const CTASection = dynamic(() => import("@/components/cta-section"), { ssr: false })
 
 export default function AProposPage() {
   // Dans la fonction du composant, ajouter cette ligne après les autres déclarations d'état
@@ -343,140 +347,8 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-8 md:py-10 bg-background dark:bg-[#040504]" id="cta-section">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2
-              className="text-3xl font-bold mb-4 opacity-0 transform translate-y-4 transition-all duration-1000 ease-out"
-              ref={(el) => {
-                if (el) {
-                  const observer = new IntersectionObserver(
-                    ([entry]) => {
-                      // Si l'élément entre dans le viewport
-                      if (entry.isIntersecting) {
-                        el.classList.add("opacity-100", "translate-y-0")
-                      } else {
-                        // Si l'élément sort du viewport, réinitialiser pour la prochaine animation
-                        el.classList.remove("opacity-100", "translate-y-0")
-                      }
-                    },
-                    { threshold: 0.1, rootMargin: "-100px 0px" },
-                  )
-                  observer.observe(el)
-
-                  // Nettoyer l'observer lors du démontage du composant
-                  return () => observer.disconnect()
-                }
-              }}
-            >
-              Rejoignez l'aventure InnovX
-            </h2>
-            <p
-              className="text-lg mb-8 opacity-0 transform translate-y-4 transition-all duration-1000 ease-out delay-300"
-              ref={(el) => {
-                if (el) {
-                  const observer = new IntersectionObserver(
-                    ([entry]) => {
-                      if (entry.isIntersecting) {
-                        el.classList.add("opacity-100", "translate-y-0")
-                      } else {
-                        el.classList.remove("opacity-100", "translate-y-0")
-                      }
-                    },
-                    { threshold: 0.1, rootMargin: "-100px 0px" },
-                  )
-                  observer.observe(el)
-
-                  return () => observer.disconnect()
-                }
-              }}
-            >
-              Que vous soyez un apprenant, un prestataire de services ou un partenaire potentiel, nous serions ravis de
-              vous accueillir dans notre communauté.
-            </p>
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 transform translate-y-4 transition-all duration-1000 ease-out delay-500"
-              ref={(el) => {
-                if (el) {
-                  const observer = new IntersectionObserver(
-                    ([entry]) => {
-                      if (entry.isIntersecting) {
-                        el.classList.add("opacity-100", "translate-y-0")
-                      } else {
-                        el.classList.remove("opacity-100", "translate-y-0")
-                      }
-                    },
-                    { threshold: 0.1, rootMargin: "-100px 0px" },
-                  )
-                  observer.observe(el)
-
-                  return () => observer.disconnect()
-                }
-              }}
-            >
-              <Link href="/register">
-                <button
-                  style={{
-                    backgroundColor: "#F8E061",
-                    color: "black",
-                    padding: window.innerWidth < 640 ? "0.75rem 1rem" : "1.25rem 1.75rem",
-                    borderRadius: "1rem",
-                    fontWeight: "bold",
-                    fontSize: window.innerWidth < 640 ? "0.875rem" : "1rem",
-                    border: "2px solid black",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                    display: "inline-block",
-                    textAlign: "center",
-                    width: "100%",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.boxShadow = "0 6px 8px rgba(0, 0, 0, 0.15)"
-                    e.currentTarget.style.transform = "translateY(-2px)"
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)"
-                    e.currentTarget.style.transform = "translateY(0)"
-                  }}
-                >
-                  Créer un compte
-                </button>
-              </Link>
-              <Link href="/contact">
-                <button
-                  style={{
-                    backgroundColor: "#F8E061",
-                    color: "black",
-                    padding: window.innerWidth < 640 ? "0.75rem 1rem" : "1.25rem 1.75rem",
-                    borderRadius: "1rem",
-                    fontWeight: "bold",
-                    fontSize: window.innerWidth < 640 ? "0.875rem" : "1rem",
-                    border: "2px solid black",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                    display: "inline-block",
-                    textAlign: "center",
-                    width: "100%",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.boxShadow = "0 6px 8px rgba(0, 0, 0, 0.15)"
-                    e.currentTarget.style.transform = "translateY(-2px)"
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)"
-                    e.currentTarget.style.transform = "translateY(0)"
-                  }}
-                >
-                  Nous contacter
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section - Chargé dynamiquement avec SSR désactivé */}
+      <CTASection />
     </div>
   )
 }
