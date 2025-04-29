@@ -1,0 +1,17 @@
+/* Remplacer les couleurs jaunes par les couleurs du thème */
+.account-link {
+  color: var(--muted-foreground);
+}
+
+.account-link:hover {
+  text-decoration: underline;
+}
+
+/* S'assurer que les icônes ne sont pas jaunes */
+.icon-primary {
+  color: var(--muted-foreground);
+}
+
+.icon-muted {
+  color: var(--muted-foreground);
+}

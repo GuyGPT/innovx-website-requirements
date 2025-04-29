@@ -1,0 +1,148 @@
+/* Styles spécifiques pour la page de consultance */
+.consultanceContainer {
+  @apply container mx-auto px-4 py-12;
+}
+
+.consultanceHeader {
+  @apply mb-12 text-center;
+}
+
+.consultanceTitle {
+  @apply text-4xl font-bold mb-4;
+}
+
+.consultanceSubtitle {
+  @apply text-xl mb-8 max-w-3xl mx-auto;
+}
+
+.servicesGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.serviceCard {
+  @apply bg-white dark:bg-black border border-gray-200 dark:border-[#F8E061] rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1;
+}
+
+.serviceCardHeader {
+  @apply bg-gray-50 dark:bg-black p-6 border-b border-gray-200 dark:border-[#F8E061];
+}
+
+.serviceCardTitle {
+  @apply text-2xl font-semibold;
+}
+
+.serviceCardContent {
+  @apply p-6;
+}
+
+.serviceCardFeatures {
+  @apply mt-4 space-y-2;
+}
+
+.serviceCardFeature {
+  @apply flex items-center;
+}
+
+.featureIcon {
+  @apply mr-2 text-yellow-500 dark:text-[#F8E061];
+}
+
+.serviceCardFooter {
+  @apply p-6 bg-gray-50 dark:bg-black border-t border-gray-200 dark:border-[#F8E061];
+}
+
+.ctaButton {
+  @apply w-full bg-yellow-400 hover:bg-yellow-500 dark:bg-[#F8E061] dark:hover:bg-[#F8E061] text-black font-medium py-2 px-4 rounded transition-colors;
+}
+
+.testimonialSection {
+  @apply mt-24 mb-12;
+}
+
+.testimonialHeader {
+  @apply text-center mb-12;
+}
+
+.testimonialTitle {
+  @apply text-3xl font-bold mb-4;
+}
+
+.testimonialSubtitle {
+  @apply text-xl max-w-2xl mx-auto;
+}
+
+.testimonialGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.testimonialCard {
+  @apply bg-white dark:bg-black p-6 rounded-lg border border-gray-200 dark:border-[#F8E061] shadow-md dark:shadow-[#F8E061];
+}
+
+.testimonialContent {
+  @apply mb-4 italic;
+}
+
+.testimonialAuthor {
+  @apply font-semibold;
+}
+
+.testimonialRole {
+  @apply text-sm text-gray-600 dark:text-white;
+}
+
+.faqSection {
+  @apply mt-24;
+}
+
+.faqHeader {
+  @apply text-center mb-12;
+}
+
+.faqTitle {
+  @apply text-3xl font-bold mb-4;
+}
+
+.faqSubtitle {
+  @apply text-xl max-w-2xl mx-auto;
+}
+
+.contactSection {
+  @apply mt-24 bg-gray-50 dark:bg-black py-12 rounded-lg border border-gray-200 dark:border-[#F8E061];
+}
+
+.contactHeader {
+  @apply text-center mb-8;
+}
+
+.contactTitle {
+  @apply text-3xl font-bold mb-4;
+}
+
+.contactSubtitle {
+  @apply text-xl max-w-2xl mx-auto;
+}
+
+.contactForm {
+  @apply max-w-2xl mx-auto;
+}
+
+.formGroup {
+  @apply mb-4;
+}
+
+.formLabel {
+  @apply block mb-2 font-medium;
+}
+
+.formInput {
+  @apply w-full p-3 border border-gray-300 dark:border-[#F8E061] rounded-md dark:bg-black;
+}
+
+.formTextarea {
+  @apply w-full p-3 border border-gray-300 dark:border-[#F8E061] rounded-md h-32 dark:bg-black;
+}
+
+.submitButton {
+  @apply w-full bg-yellow-400 hover:bg-yellow-500 dark:bg-[#F8E061] dark:hover:bg-[#F8E061] text-black font-medium py-3 px-4 rounded transition-colors;
+}

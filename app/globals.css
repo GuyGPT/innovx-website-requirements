@@ -1,0 +1,555 @@
+/* Font styles are managed through Next.js font system */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 60 91% 68%; /* #F8E061 */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 120 1% 2%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Palette stricte: noir, blanc, jaune uniquement */
+    --background: 0 0% 0%; /* #000000 - Noir pur */
+    --foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --card: 0 0% 0%; /* #000000 - Noir pur */
+    --card-foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --popover: 0 0% 0%; /* #000000 - Noir pur */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --primary: 55 91% 68%; /* #F8E061 - Jaune */
+    --primary-foreground: 0 0% 0%; /* #000000 - Noir pur */
+
+    --secondary: 0 0% 0%; /* #000000 - Noir pur */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --muted: 0 0% 0%; /* #000000 - Noir pur */
+    --muted-foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --accent: 0 0% 0%; /* #000000 - Noir pur */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --destructive: 0 100% 50%; /* #FF0000 - Rouge pur pour les erreurs uniquement */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF - Blanc pur */
+
+    --border: 55 91% 68%; /* #F8E061 - Jaune */
+    --input: 0 0% 0%; /* #000000 - Noir pur */
+    --ring: 55 91% 68%; /* #F8E061 - Jaune */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .icon-container {
+    @apply w-12 h-12 rounded-full bg-innovx-yellow flex items-center justify-center mb-4;
+  }
+
+  .icon-container-sm {
+    @apply w-10 h-10 rounded-full bg-innovx-yellow flex items-center justify-center mb-2;
+  }
+
+  .icon-yellow {
+    @apply text-innovx-black;
+  }
+
+  .icon-black {
+    @apply text-innovx-yellow;
+  }
+
+  /* Ajoutons ces styles pour la vidéo en mode mobile */
+  .hero-video-container {
+    @apply w-full;
+  }
+
+  @media (max-width: 768px) {
+    .hero-video-container {
+      @apply fixed inset-0 z-0;
+    }
+
+    .hero-video-container::after {
+      content: "";
+      @apply absolute inset-0 bg-black z-0;
+    }
+
+    .hero-video-container video {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  .hero-section {
+    @apply bg-primary/10 text-foreground;
+  }
+
+  .hero-text {
+    @apply text-foreground;
+  }
+
+  .hero-subtext {
+    @apply text-muted-foreground;
+  }
+
+  .pastel-section {
+    @apply bg-primary/10 text-foreground;
+  }
+
+  .pastel-section-text {
+    @apply text-foreground;
+  }
+
+  .pastel-section-subtext {
+    @apply text-muted-foreground;
+  }
+
+  .cta-section {
+    @apply relative overflow-hidden;
+    animation: soft-pulse 4s infinite ease-in-out;
+  }
+
+  .cta-title {
+    @apply relative;
+    animation: gentle-float 4s infinite ease-in-out;
+  }
+
+  .cta-text {
+    @apply relative;
+    animation: fade-in-up 1s ease-out;
+  }
+
+  .cta-buttons {
+    @apply relative;
+    animation: fade-in-up 1.2s ease-out;
+  }
+
+  /* Add specific dark mode styles for components */
+  .dark .card-hover {
+    @apply hover:shadow-lg hover:shadow-yellow-400;
+  }
+
+  .dark .icon-container {
+    @apply bg-[#F8E061];
+  }
+
+  .dark .icon-yellow {
+    @apply text-black;
+  }
+
+  /* Dark mode styles for social icons */
+  .dark .social-icons a {
+    @apply text-white hover:text-[#F8E061];
+  }
+
+  /* Correction pour les icônes en mode sombre */
+  .dark .icon-container svg {
+    @apply text-black;
+  }
+
+  /* Correction pour les textes qui ne changent pas de couleur */
+  .dark .text-black-static {
+    @apply text-black;
+  }
+
+  .dark .text-white-static {
+    @apply text-white;
+  }
+
+  /* Correction pour les icônes de la section sécurité */
+  .dark .pastel-section .text-innovx-black {
+    @apply text-[#F8E061];
+  }
+
+  /* Correction pour les listes à puces avec des cercles colorés */
+  .dark .w-5.h-5.rounded-full.bg-\[\#F8E061\] {
+    @apply bg-[#F8E061];
+  }
+
+  .dark .w-2.h-2.rounded-full.bg-innovx-yellow {
+    @apply bg-[#F8E061];
+  }
+
+  /* Suppression des outlines jaunes en mode sombre */
+  .dark *:focus,
+  .dark *:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    --tw-ring-color: transparent !important;
+    --tw-ring-offset-color: transparent !important;
+  }
+
+  /* Cibler spécifiquement le bouton de retour dans le menu mobile */
+  .dark [aria-label="Retour"],
+  .dark [aria-label="Menu"] {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
+  .dark [aria-label="Retour"]::before,
+  .dark [aria-label="Retour"]::after,
+  .dark [aria-label="Retour"] *::before,
+  .dark [aria-label="Retour"] *::after,
+  .dark [aria-label="Menu"]::before,
+  .dark [aria-label="Menu"]::after,
+  .dark [aria-label="Menu"] *::before,
+  .dark [aria-label="Menu"] *::after {
+    display: none !important;
+  }
+
+  /* Styles spécifiques pour les boutons du menu mobile en mode sombre */
+  .dark .mobile-menu-button {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: transparent !important;
+  }
+
+  .dark .mobile-menu-button:focus,
+  .dark .mobile-menu-button:focus-visible,
+  .dark .mobile-menu-button:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: transparent !important;
+  }
+
+  .dark .mobile-menu-button::before,
+  .dark .mobile-menu-button::after,
+  .dark .mobile-menu-button *::before,
+  .dark .mobile-menu-button *::after {
+    display: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Supprimer tous les effets de focus sur les boutons dans le menu mobile */
+  .dark [role="dialog"] button,
+  .dark [role="dialog"] [role="button"] {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
+  .dark [role="dialog"] button::before,
+  .dark [role="dialog"] button::after,
+  .dark [role="dialog"] [role="button"]::before,
+  .dark [role="dialog"] [role="button"]::after {
+    display: none !important;
+  }
+}
+
+/*
+Ajouter ces animations personnalisées à la fin du fichier, juste avant la dernière accolade fermante
+*/
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 #f8e061;
+  }
+  50% {
+    box-shadow: 0 0 20px 10px #f8e061;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #f8e061;
+  }
+}
+
+/* Styles pour les inputs en mode sombre - correction */
+.dark input,
+.dark textarea,
+.dark select,
+.dark .input,
+.dark [type="text"],
+.dark [type="email"],
+.dark [type="url"],
+.dark [type="password"],
+.dark [type="number"],
+.dark [type="date"],
+.dark [type="datetime-local"],
+.dark [type="month"],
+.dark [type="search"],
+.dark [type="tel"],
+.dark [type="time"],
+.dark [type="week"],
+.dark [multiple],
+.dark [contenteditable="true"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #f8e061 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder,
+.dark select::placeholder {
+  color: #ffffff !important;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #f8e061 !important;
+  box-shadow: 0 0 0 2px #f8e061 !important;
+}
+
+/* Styles pour le bouton de chat */
+.chat-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #f8e061;
+  }
+  70% {
+    box-shadow: 0 0 0 10px #000000;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #000000;
+  }
+}
+
+.dark .chat-message-bot {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark .chat-message-user {
+  background-color: #f8e061;
+  color: #000000;
+}
+
+/* Animations à l'entrée avec durée limitée */
+.animate-once {
+  animation: soft-pulse 3s ease-in-out;
+}
+
+.animate-title {
+  position: relative;
+  animation: gentle-float 3s ease-in-out;
+}
+
+.animate-fade-up {
+  position: relative;
+  animation: fade-in-up 3s ease-out;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Modifier les animations existantes pour qu'elles ne soient pas infinies */
+@keyframes soft-pulse-once {
+  0% {
+    box-shadow: 0 0 0 0 #f8e061;
+  }
+  50% {
+    box-shadow: 0 0 20px 10px #f8e061;
+  }
+  100% {
+    box-shadow: 0 0 0 0 #f8e061;
+  }
+}
+
+@keyframes gentle-float-once {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animations à l'entrée avec durée limitée */
+.animate-title,
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-title.animate-in,
+.animate-fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animation-delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Animations à l'entrée qui conservent l'état final */
+.animate-entry {
+  position: relative;
+  overflow: hidden;
+  animation: fade-in-up 0.8s ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* Styles globaux pour assurer la visibilité de l'icône de fermeture du menu mobile */
+.mobile-menu-close {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+  width: 40px !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  position: relative !important;
+  z-index: 9999 !important;
+  cursor: pointer !important;
+}
+
+.mobile-menu-close svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 24px !important;
+  height: 24px !important;
+  stroke-width: 2.5 !important;
+  color: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Forcer l'affichage des icônes Lucide */
+.lucide,
+.lucide-arrow-left,
+.lucide-x {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Supprimer les styles qui pourraient masquer l'icône */
+[&_.lucide-x],
+[&_.lucide-arrow-left] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Assurer que le contenu du SheetContent n'interfère pas */
+.SheetContent {
+  --sheet-icon-opacity: 1 !important;
+}
+
+/* Styles pour le bouton de fermeture spécifiquement */
+button.mobile-menu-close {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+
+/* Styles pour le conteneur du bouton de fermeture */
+.SheetContent .flex.items-center.justify-between {
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
+/* Ajouter ces styles à la fin du fichier pour garantir l'affichage de l'icône de fermeture */
+/* Styles spécifiques pour l'icône SVG de fermeture du menu */
+[role="dialog"] svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+}
+
+/* Assurer que le conteneur de l'icône est visible */
+[role="dialog"] .flex.items-center.justify-center {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Styles spécifiques pour la page d'affiliation */
+.affiliation-page [role="dialog"] svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  stroke: currentColor !important;
+  stroke-width: 2.5 !important;
+}
