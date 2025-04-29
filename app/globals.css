@@ -93,11 +93,13 @@
   }
 
   .icon-container {
-    @apply w-12 h-12 rounded-full bg-innovx-yellow flex items-center justify-center mb-4;
+    @apply w-12 h-12 rounded-full flex items-center justify-center mb-4;
+    background-color: #f8e061;
   }
 
   .icon-container-sm {
-    @apply w-10 h-10 rounded-full bg-innovx-yellow flex items-center justify-center mb-2;
+    @apply w-10 h-10 rounded-full flex items-center justify-center mb-2;
+    background-color: #f8e061;
   }
 
   .icon-yellow {
@@ -178,7 +180,7 @@
   }
 
   .dark .icon-container {
-    @apply bg-[#F8E061];
+    background-color: #f8e061;
   }
 
   .dark .icon-yellow {
@@ -211,11 +213,11 @@
 
   /* Correction pour les listes à puces avec des cercles colorés */
   .dark .w-5.h-5.rounded-full.bg-\[\#F8E061\] {
-    @apply bg-[#F8E061];
+    background-color: #f8e061;
   }
 
   .dark .w-2.h-2.rounded-full.bg-innovx-yellow {
-    @apply bg-[#F8E061];
+    background-color: #f8e061;
   }
 
   /* Suppression des outlines jaunes en mode sombre */
@@ -503,8 +505,8 @@ Ajouter ces animations personnalisées à la fin du fichier, juste avant la dern
 }
 
 /* Supprimer les styles qui pourraient masquer l'icône */
-[&_.lucide-x],
-[&_.lucide-arrow-left] {
+.lucide-x,
+.lucide-arrow-left {
   opacity: 1 !important;
   visibility: visible !important;
   display: block !important;
