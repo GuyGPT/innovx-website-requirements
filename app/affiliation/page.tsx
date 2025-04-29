@@ -1033,60 +1033,12 @@ export default function AffiliationPage() {
               }}
             >
               <Link href="/register" className="w-full sm:w-auto">
-                <button
-                  style={{
-                    backgroundColor: "#F8E061",
-                    color: "black",
-                    padding: window.innerWidth < 640 ? "0.75rem 1rem" : "1.25rem 1.75rem",
-                    borderRadius: "1rem",
-                    fontWeight: "bold",
-                    fontSize: window.innerWidth < 640 ? "0.875rem" : "1rem",
-                    border: "2px solid black",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                    display: "inline-block",
-                    textAlign: "center",
-                    width: "100%",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.boxShadow = "0 6px 8px rgba(0, 0, 0, 0.15)"
-                    e.currentTarget.style.transform = "translateY(-2px)"
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)"
-                    e.currentTarget.style.transform = "translateY(0)"
-                  }}
-                >
+                <button className="w-full bg-[#F8E061] text-black font-bold border-2 border-black rounded-2xl shadow-md transition-all duration-300 ease-in-out cursor-pointer text-center sm:text-base text-sm sm:py-5 sm:px-7 py-3 px-4 hover:shadow-lg hover:-translate-y-0.5">
                   Devenir affilié
                 </button>
               </Link>
               <Link href="/contact" className="w-full sm:w-auto">
-                <button
-                  style={{
-                    backgroundColor: "#F8E061",
-                    color: "black",
-                    padding: window.innerWidth < 640 ? "0.75rem 1rem" : "1.25rem 1.75rem",
-                    borderRadius: "1rem",
-                    fontWeight: "bold",
-                    fontSize: window.innerWidth < 640 ? "0.875rem" : "1rem",
-                    border: "2px solid black",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    transition: "all 0.3s ease",
-                    cursor: "pointer",
-                    display: "inline-block",
-                    textAlign: "center",
-                    width: "100%",
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.boxShadow = "0 6px 8px rgba(0, 0, 0, 0.15)"
-                    e.currentTarget.style.transform = "translateY(-2px)"
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)"
-                    e.currentTarget.style.transform = "translateY(0)"
-                  }}
-                >
+                <button className="w-full bg-[#F8E061] text-black font-bold border-2 border-black rounded-2xl shadow-md transition-all duration-300 ease-in-out cursor-pointer text-center sm:text-base text-sm sm:py-5 sm:px-7 py-3 px-4 hover:shadow-lg hover:-translate-y-0.5">
                   Nous contacter
                 </button>
               </Link>
